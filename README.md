@@ -2,13 +2,12 @@
 
 A premium, production-ready SaaS landing page built with **Next.js 14**, **Framer Motion**, **TailwindCSS**, and **TypeScript**. Packed with rich micro-interactions, scroll-driven animations, and polished UI components designed to convert visitors into customers.
 
-![Preview](https://github.com/user-attachments/assets/85e0357d-65a3-45a5-94fb-ead789a718e2)
 
 ---
 
 ## ✨ Live Demo
 
-👉 [saas-landing-nextjs.vercel.app](https://saas-landing-nextjs.vercel.app/)
+👉 [saas-landing-nextjs.vercel.app]()
 
 ---
 
