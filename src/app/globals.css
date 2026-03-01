@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
+    @apply cursor-pointer relative overflow-hidden select-none;
+    @apply transition-all duration-200 ease-out;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black/40;
+  }
+
+  /* Press-down scale on active */
+  .btn:active {
+    transform: scale(0.96);
+  }
+
+  .btn-primary {
+    @apply bg-black text-white;
+    @apply hover:bg-[#111];
+    @apply active:shadow-none;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-primary:active {
+    box-shadow: none;
+  }
+
+  /* Shimmer sweep on btn-primary hover */
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.18) 50%,
+        transparent 60%);
+    background-size: 200% 100%;
+    background-position: 200% center;
+    transition: background-position 0.5s ease;
+  }
+
+  .btn-primary:hover::after {
+    background-position: -200% center;
+  }
+
+  /* Inverse variant: white bg, black text — lives on dark (Pro) card */
+  .btn-primary-inverse {
+    @apply bg-white text-black;
+    @apply hover:bg-gray-100;
+  }
+
+  .btn-primary-inverse:hover {
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-primary-inverse::after {
+    /* remove the shimmer pseudo-element colour flip on the inverse button */
+    background: linear-gradient(105deg,
+        transparent 40%,
+        rgba(0, 0, 0, 0.06) 50%,
+        transparent 60%);
+  }
+
+  .btn-text {
+    @apply text-black bg-transparent;
+    @apply hover:text-black/70;
+  }
+
+  /* Animated underline on btn-text */
+  .btn-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: 1.5px;
+    background: currentColor;
+    transition: left 0.25s ease, right 0.25s ease;
+  }
+
+  .btn-text:hover::after {
+    left: 8px;
+    right: 8px;
+  }
+
+  .logo-ticker-image {
+    @apply h-8 w-auto;
+  }
+
+  .tag {
+    @apply text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight;
+  }
+
+  .section-title {
+    @apply text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text;
+  }
+
+  .section-des {
+    @apply text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E];
+  }
+
+  .section-heading {
+    @apply max-w-[540px] mx-auto;
+  }
+
+  .card {
+    @apply p-10 rounded-3xl border border-[#F1F1F1] shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
+  }
+}
+
+/* ── Ripple animation (used by RippleButton) ── */
+@keyframes rippleAnim {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* ── Blob morph (used by Hero background) ── */
+@keyframes blobMorph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  50% {
+    border-radius: 50% 50% 30% 70% / 30% 40% 60% 70%;
+  }
+
+  75% {
+    border-radius: 70% 30% 50% 50% / 40% 70% 30% 50%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
